@@ -69,6 +69,7 @@ export default class Box extends Component {
   };
 
   render() {
+    document.title = 'Rocketbox'
     return (
       <div id="box-container">
         <header>

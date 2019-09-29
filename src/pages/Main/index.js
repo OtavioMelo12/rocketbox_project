@@ -25,6 +25,7 @@ export default class Main extends Component {
   }
 
   render() {
+    document.title = 'Rocketbox'
     return (
       <div id="main-container">
         <form onSubmit={this.handleSubmit}>
