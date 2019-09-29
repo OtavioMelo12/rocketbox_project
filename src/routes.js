@@ -1,21 +1,16 @@
-const express = require('express');
-const multer = require('multer');
-const multerConfig = require('./config/multer');
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const routes = express();
+import Main from './pages/Main';
+import Box from './pages/Box';
 
-const BoxController = require('./controllers/BoxController');
-const FileController = require('./controllers/FileController');
-
-routes.post("/boxes", BoxController.store);
-routes.get("/boxes/:id", BoxController.show);
-routes.get("/boxes", BoxController.mostra);
-
-
-routes.post(
-    "/boxes/:id/files", 
-    multer(multerConfig).single('file'), 
-    FileController.store
+const Routes = () => (
+    <BrowserRouter>
+        <Switch>
+            <Route path="/" exact component={Main} />
+            <Route path="/box/:id" component={Box} />
+        </Switch>
+    </BrowserRouter>
 );
 
-module.exports = routes;
+export default Routes;
